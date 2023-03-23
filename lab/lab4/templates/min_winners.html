@@ -1,0 +1,25 @@
+{% extends 'base.html' %} {% block main_content %}
+<form action="" method="POST" novalidate>
+  {{form.hidden_tag()}} {{form.country.label}} {{form.country()}}
+  <br />
+  {{form.points.label}} {{form.points()}}
+
+  <br />
+  {{form.submit()}}
+</form>
+{% if winner %}
+<table>
+  {% for whichwinner in winner %}
+  <tr>
+    <td>{{whichwinner['year']}}</td>
+    <td>{{whichwinner['country']}}</td>
+    <td>{{whichwinner['song']}}</td>
+    <td>{{whichwinner['performer']}}</td>
+    <td>{{whichwinner['points']}}</td>
+  </tr>
+  {% endfor %}
+  <!-- endfor 必须在这里，如果在table下面就不是tabel 了 -->
+</table>
+{% endif %} {% endblock %}
+
+<!-- winners is a database and a list of dictionaries, winner is each dictionary -->

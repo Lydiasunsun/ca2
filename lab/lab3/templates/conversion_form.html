@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {% block main_content %}
+<form method="POST" action="" novalidate>
+  {{form.hidden_tag()}} {{form.first.label}} {{form.first()}}{{form.in1()}}
+  <img
+    src="{{url_for('static',filename='thermometer.jpeg')}}"
+    alt="a picture of a
+  wired thing"
+  />
+  {% for error in form.in1.errors %} {{error}} {% endfor %}
+  <br />
+  {{form.to.label}} {{form.to()}}{{form.out(disabled=True)}}
+  <br />
+  {{form.submit()}}
+</form>
+<a href="{{url_for('shift')}}">Go to shift</a>
+
+{% endblock %}

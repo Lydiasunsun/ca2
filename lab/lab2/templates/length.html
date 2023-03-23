@@ -1,0 +1,18 @@
+{% extends "base.html" %} {% block main_content %} Enter a number into
+<b>one</b> of the following:
+<br />
+<form method="POST" action="">
+  <label for="inches">Inches:</label>
+  <input type="text" name="inches" value="{{inches}}" id="inches" />
+  <br />
+  <label for="centimetres">Centimetres:</label>
+  <input
+    type="text"
+    name="centimetres"
+    value="{{centimetres}}"
+    id="centimetres"
+  />
+  <br />
+  <input type="submit" />
+</form>
+{{error}} {% endblock %}

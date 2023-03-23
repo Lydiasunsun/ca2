@@ -1,0 +1,24 @@
+{% extends 'base.html' %} {% block main_content %}
+<form action="" method="POST" novalidate>
+  {{form.hidden_tag()}} {{form.country.label}} {{form.country()}} {% for error
+  in form.country.errors %} {{error}} {% endfor %}
+
+  <br />
+  {{form.submit()}}
+</form>
+{% if winner %}
+<table>
+  {% for who in winner %}
+  <tr>
+    <td>{{who['year']}}</td>
+    <td>{{who['country']}}</td>
+    <td>{{who['song']}}</td>
+    <td>{{who['performer']}}</td>
+    <td>{{who['points']}}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endif %} {% endblock %}
+
+<!-- 注意不要忘记 form.hidden_tag() 以及error 的for loop 是 form.country.errors -->
+<!-- for who in winner   (注意这个winner 不是database 而是app中自定义的被选出的list of dictionary) -->
